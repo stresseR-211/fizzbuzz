@@ -6,8 +6,8 @@ typedef struct FizzBuzzEngine {
 	void (*fizz)(void);
 	void (*buzz)(void);
 } FizzBuzzEngine;
-void fizz() { printf("fizz"); }
-void buzz() { printf("buzz"); }
+void fizz() { printf("Fizz"); }
+void buzz() { printf("Buzz"); }
 static inline FizzBuzzEngine* initialize(void) {
 	FizzBuzzEngine* fbe = (FizzBuzzEngine*)malloc(sizeof(FizzBuzzEngine));
 	fbe->fizz = fizz;
