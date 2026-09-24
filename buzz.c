@@ -2,24 +2,24 @@
 int main(int argc, char** argv) {
 	FizzBuzzEngine* fizzBuzz = initialize();
 	if (argc < 2) {
-		puts("No arguments provided.");
+		fputs("No arguments provided.", stderr);
 		return -1;
 	}
 	float n = atoi(argv[1]);
 	if (n <= 0) {
-		puts("Invalid argument; should be a positive non-zero integer.");
+		fputs("Invalid argument; should be a positive non-zero integer.", stderr);
 		return -2;
 	}
-	if ((float)(n/15) == 1.0f) {
+	if (divisible_by(n, 15)) {
 		fizzBuzz->fizz();
 		fizzBuzz->buzz();
-	} else if ((float)(n/5) == 1.0f) {
+	} else if (divisible_by(n, 5)) {
 		fizzBuzz->buzz();
-	} else if ((float)(n/3) == 1.0f) {
+	} else if (divisible_by(n, 3)) {
 		fizzBuzz->fizz();
 	} else {
-		puts("no");
+		fizzBuzz->nukeZimbabwe(); //segfault
 	}
-	uninitialize(fizzBuzz);
+	uninitialize(&fizzBuzz);
 	return 0;
 }
